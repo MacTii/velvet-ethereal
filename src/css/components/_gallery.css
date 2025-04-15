@@ -1,0 +1,30 @@
+.gallery__grid {
+    margin-block: 2rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery__grid img {
+    transition: 0.3s;
+}
+
+.gallery__grid:hover img:not(:hover) {
+    opacity: 0.5;
+}
+
+.gallery__btn {
+    text-align: center;
+}
+
+@media (width > 540px) {
+    .gallery__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (width > 768px) {
+    .gallery__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

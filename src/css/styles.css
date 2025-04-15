@@ -1,0 +1,16 @@
+@import "/src/css/base/_base.css";
+@import "/src/css/components/_header.css";
+@import "/src/css/components/_footer.css";
+@import "/src/css/components/_button.css";
+@import "/src/css/components/_instagram-feed.css";
+@import "/src/css/components/_section.css";
+@import "/src/css/components/_about.css";
+@import "/src/css/components/_portfolio.css";
+@import "/src/css/components/_service.css";
+@import "/src/css/components/_client.css";
+@import "/src/css/components/_swiper.css";
+@import "/src/css/components/_blog.css";
+@import "/src/css/components/_gallery.css";
+@import "/src/css/utilities/_animations.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
