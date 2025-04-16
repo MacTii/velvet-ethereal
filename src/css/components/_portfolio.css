@@ -20,15 +20,15 @@
 }
 
 .portfolio__card:nth-child(1)::after {
-    content: "Portraits";
+    content: "Portrety";
 }
 
 .portfolio__card:nth-child(2)::after {
-    content: "Weddings";
+    content: "Śluby";
 }
 
 .portfolio__card:nth-child(3)::after {
-    content: "Fashions";
+    content: "Moda";
 }
 
 .portfolio__content {
