@@ -6,7 +6,6 @@ This project is a digital business card for a photography studio named **Aksamit
 
 - **Node.js Version**: 20.19
 - **NPM Version**: 10.9.2
-- **Tailwind CSS Version**: 3.4.17 (future update)
   
 ## 🚀 Deployment
 
@@ -41,15 +40,11 @@ You need to have the following software installed:
    npm run dev
 This will start the application locally on http://localhost:3000.
 
-## ⌛ Future Updates
-
-In the future, the project will be updated to include **Tailwind CSS version 3.4.17** for improved design flexibility.
-
 ## 📬 Contact
 
 **Studio Owner:** Karina Moszczyńska/Taisa Gawrońska </br>
 **Email:** your@email.com </br>
-**Instagram:** @aksamitna_eteryka </br>
+**Instagram:** <a href="https://www.instagram.com/studio_aksamitna_eteryka/" target="_blank">@studio_aksamitna_eteryka</a>
 
 ## 📝 License
 
