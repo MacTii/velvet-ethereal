@@ -43,13 +43,13 @@ This will start the application locally on http://localhost:3000.
 ## 📬 Contact
 
 **Studio Owner:** Karina Moszczyńska/Taisa Gawrońska </br>
-**Email:** your@email.com </br>
+**Email:** aksamitnaeteryka@gmail.com </br>
 **Instagram:** <a href="https://www.instagram.com/studio_aksamitna_eteryka/" target="_blank">@studio_aksamitna_eteryka</a>
 
 ## 📝 License
 
 This project is licensed under a **Commercial License**. To use or distribute this project, you must obtain a valid commercial license.
 
-For more details on pricing and licensing terms, please contact us at [contact@aksamitna-eteryka.com](mailto:contact@aksamitna-eteryka.com).
+For more details on pricing and licensing terms, please contact us at aksamitnaeteryka@gmail.com.
 
 All rights reserved © 2025 Aksamitna Eteryka.
