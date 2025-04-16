@@ -12,7 +12,7 @@ This project is a digital business card for a photography studio named **Aksamit
 ### Environments
 | Environment | Branch | URL | Status |
 |-------------|--------|-----|--------|
-| **Production** | `main` | [aksamitna-eteryka.vercel.app](https://aksamitna-eteryka.vercel.app) | [![Production](https://img.shields.io/badge/Production-Live-brightgreen)](https://aksamitna-eteryka.vercel.app) |
+| **Production** | `master` | [aksamitna-eteryka.vercel.app](https://aksamitna-eteryka.vercel.app) | [![Production](https://img.shields.io/badge/Production-Live-brightgreen)](https://aksamitna-eteryka.vercel.app) |
 | **Staging** | `test` | [aksamitna-eteryka-test.vercel.app](https://aksamitna-eteryka-test.vercel.app) | [![Staging](https://img.shields.io/badge/Staging-Test-blue)](https://aksamitna-eteryka-test.vercel.app) |
 
 ## 🛠️ Development Setup
