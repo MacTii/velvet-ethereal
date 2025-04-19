@@ -16,40 +16,186 @@
     color: var(--extra-light);
 }
 
+.pricing-section {
+    margin-top: 3rem;
+    color: var(--extra-light);
+}
+
+.pricing-table {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: var(--body-font);
+}
+
+.pricing-table h3 {
+    color: var(--white);
+    margin-bottom: 15px;
+    font-family: var(--header-font);
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.pricing-table h4 {
+    color: var(--white);
+    font-family: var(--header-font);
+    margin: 20px 0 15px 0;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.pricing-table ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.pricing-table ul li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--extra-light);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--body-font);
+}
+
+.pricing-table ul li strong {
+    color: var(--white);
+    font-weight: 500;
+}
+
+.pricing-table .note {
+    font-style: italic;
+    color: var(--extra-light);
+    margin-top: 15px;
+    font-size: 0.9rem;
+    text-align: center;
+    font-family: var(--body-font);
+}
+
+.included {
+    columns: 2;
+    column-gap: 30px;
+    margin-top: 20px;
+    list-style-type: none;
+    padding-left: 0;
+    font-family: var(--body-font);
+}
+
+.included li {
+    padding-left: 0;
+    position: relative;
+}
+
+.additional-fees {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 200, 200, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 150, 150, 0.2);
+    font-family: var(--body-font);
+}
+
+.additional-fees h3 {
+    color: var(--white);
+    font-family: var(--header-font);
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.additional-fees ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.additional-fees li {
+    color: var(--extra-light);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.additional-fees li strong {
+    color: var(--white);
+    font-weight: 500;
+}
+
 .service__grid {
-    margin-top: 4rem;
+    margin-top: 3rem;
     display: grid;
     gap: 2rem;
 }
 
 .service__card {
     text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service__card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .service__card h4 {
-    position: relative;
-    isolation: isolate;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 400;
     font-family: var(--header-font);
     color: var(--white);
+    margin-bottom: 0.5rem;
 }
 
 .service__card h4::after {
     position: absolute;
-    content: "~";
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     font-size: 2rem;
     line-height: 0;
+    color: rgba(255, 255, 255, 0.3);
 }
 
 .service__card p {
     color: var(--extra-light);
     line-height: 1.75rem;
+    margin-top: 0.5rem;
+}
+
+.service__price {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    font-family: var(--header-font);
+}
+
+.service__separator {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.5rem;
+    line-height: 0;
+    margin: 0.5rem 0;
+}
+
+.packages-header {
+    font-family: var(--header-font);
+    color: var(--white);
+    text-align: center;
+    font-size: 1.6rem;
+    margin: 3rem 0 2rem;
+    font-weight: 400;
+    position: relative;
 }
 
 @media (width > 540px) {
@@ -60,6 +206,14 @@
 
 @media (width > 768px) {
     .service__grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .pricing-table {
+        padding: 30px;
+    }
+
+    .included {
+        columns: 2;
     }
 }

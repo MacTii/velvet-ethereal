@@ -23,12 +23,24 @@ export function initAnimations() {
   });
   ScrollReveal().reveal(".service__container .section__description", {
     ...scrollRevealOption,
-    delay: 500,
+    delay: 300,
+  });
+  ScrollReveal().reveal(".pricing-table", {
+    ...scrollRevealOption,
+    delay: 600,
+  });
+  ScrollReveal().reveal(".packages-header", {
+    ...scrollRevealOption,
+    delay: 900,
   });
   ScrollReveal().reveal(".service__card", {
     duration: 1000,
-    delay: 1000,
+    delay: 1200,
     interval: 500,
+  });
+  ScrollReveal().reveal(".additional-fees", {
+    ...scrollRevealOption,
+    delay: 2000,
   });
 
   ScrollReveal().reveal(".blog__content .section__header", {
