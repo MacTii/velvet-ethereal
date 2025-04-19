@@ -8,10 +8,13 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-
     animation: scroll 45s linear infinite;
 }
 
 .instagram__flex img {
-    max-width: 135px;
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 4px;
 }
