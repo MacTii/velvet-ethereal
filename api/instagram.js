@@ -10,6 +10,7 @@ export default async function handler(req, res) {
 
     // Token powinien być w zmiennych środowiskowych
     const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+    console.log("Access Token:", accessToken);
 
     if (!accessToken) {
         return res.status(500).json({ error: "Instagram token nie jest skonfigurowany" });
