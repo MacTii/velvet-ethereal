@@ -43,6 +43,7 @@
     font-weight: 600;
     color: var(--text-dark);
     text-align: center;
+    white-space: nowrap;
 }
 
 .footer__links a:hover {
@@ -106,6 +107,11 @@
     color: var(--text-light);
 }
 
+.footer__contact a.no-hover {
+    pointer-events: none;
+    cursor: default;
+}
+
 @media (width > 540px) {
     .footer__container {
         grid-template-columns: repeat(2, 1fr);
@@ -146,7 +152,7 @@
     .footer__contact {
         align-items: center;
     }
-    
+
     .footer__contact li {
         justify-content: center;
     }
