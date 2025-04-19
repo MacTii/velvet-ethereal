@@ -24,13 +24,20 @@ export async function loadInstagramFeed(
 
     if (!response.ok) throw new Error("Błąd podczas pobierania danych");
 
-    const data = await response.json();
+    const images = await response.json();
 
     container.innerHTML = ""; // Czyścimy kontener
 
-    // Dodajemy zdjęcia do kontenera
-    data.forEach((item) => {
-      container.appendChild(createImageElement(item.media_url));
+    // 1. Dodaj oryginalne zdjęcia
+    images.forEach((img) => {
+      container.appendChild(createImageElement(img.media_url));
+    });
+
+    // 2. Dodaj KOPIE wszystkich zdjęć z aria-hidden
+    images.forEach(img => {
+      const clone = createImageElement(img.media_url);
+      clone.setAttribute('aria-hidden', 'true');
+      container.appendChild(clone);
     });
 
   } catch (error) {
@@ -49,7 +56,7 @@ function createImageElement(url) {
   const img = document.createElement("img");
   img.src = url;
   img.alt = "Instagram post";
-  img.className = "instagram-image";
-  img.loading = "lazy";
+  //img.className = "instagram-image";
+  //img.loading = "lazy";
   return img;
 }
