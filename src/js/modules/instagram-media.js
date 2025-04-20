@@ -4,11 +4,7 @@
  * @param {string} containerId - ID elementu HTML, gdzie mają być zdjęcia (np. 'instagram-feed')
  * @param {number} limit - Maksymalna liczba zdjęć do wyświetlenia
  */
-export async function loadInstagramFeed(
-  userId,
-  containerId = "instagram-feed",
-  limit = 8
-) {
+export async function loadInstagramMedia(userId, containerId, limit = 8) {
   const container = document.getElementById(containerId);
 
   if (!container) {
@@ -20,7 +16,9 @@ export async function loadInstagramFeed(
   container.innerHTML = "<p>Ładowanie zdjęć z Instagrama...</p>";
 
   try {
-    const response = await fetch(`/api/instagram?userId=${userId}&limit=${limit}`);
+    const response = await fetch(
+      `/api/instagram?userId=${userId}&limit=${limit}`
+    );
 
     if (!response.ok) throw new Error("Błąd podczas pobierania danych");
 
@@ -34,14 +32,13 @@ export async function loadInstagramFeed(
     });
 
     // 2. Dodaj KOPIE wszystkich zdjęć z aria-hidden
-    if(containerId === "instagram-feed") {
-      images.forEach(img => {
+    if (containerId === "instagram-feed") {
+      images.forEach((img) => {
         const clone = createImageElement(img.media_url);
-        clone.setAttribute('aria-hidden', 'true');
+        clone.setAttribute("aria-hidden", "true");
         container.appendChild(clone);
       });
     }
-
   } catch (error) {
     console.error("Błąd ładowania Instagram feed:", error);
     container.innerHTML =
