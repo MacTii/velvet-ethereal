@@ -27,3 +27,8 @@
     font-weight: 600;
     color: var(--text-dark);
 }
+
+.client__card h5 {
+    color: var(--text-medium-gray);
+    font-weight: 600;
+}

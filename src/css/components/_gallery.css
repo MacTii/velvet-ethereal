@@ -6,12 +6,16 @@
 }
 
 .gallery__grid img {
-    transition: 0.3s;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
 }
 
-.gallery__grid:hover img:not(:hover) {
+/* .gallery__grid:hover img:not(:hover) {
     opacity: 0.5;
-}
+} */
 
 .gallery__btn {
     text-align: center;

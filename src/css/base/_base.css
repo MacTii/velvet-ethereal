@@ -1,10 +1,14 @@
 :root {
     --text-dark: #171717;
     --text-light: #525252;
+    --text-medium-gray: #666;
     --extra-light: #a3a3a3;
+    --accent-color: #bd6b0d;
     --white: #ffffff;
     --max-width: 1200px;
     --header-font: "Merriweather", serif;
+    --body-font: "Montserrat", sans-serif;
+    --roundhand-font: "Roundhand", cursive;
 }
 
 * {
@@ -29,5 +33,20 @@ body {
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--body-font);
+}
+
+@font-face {
+    font-family: 'Roundhand Regular';
+    src: url('../../fonts/Roundhand Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roundhand Bold';
+    src: url('../../fonts/Roundhand Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roundhand';
+    src: url('../../fonts/roundhandbdbtbold.ttf') format('truetype');
 }
