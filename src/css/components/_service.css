@@ -131,9 +131,9 @@
     font-weight: 500;
 }
 
-/* .additional-fees li:last-child {
+.additional-fees li:last-child {
     border-bottom: none;
-} */
+}
 
 .service__grid {
     margin-top: 3rem;
@@ -221,5 +221,16 @@
 
     .included {
         columns: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .additional-fees li {
+        display: block;
+        text-align: center;
+    }
+    
+    .additional-fees li strong {
+        display: block;
     }
 }
