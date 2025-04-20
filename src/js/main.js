@@ -15,6 +15,7 @@ if (!userId) {
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initAnimations();
-  loadInstagramFeed(userId);
   initSwiper();
+  loadInstagramFeed(userId);
+  loadInstagramFeed(userId, 'gallery');
 });

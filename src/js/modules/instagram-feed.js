@@ -34,11 +34,13 @@ export async function loadInstagramFeed(
     });
 
     // 2. Dodaj KOPIE wszystkich zdjęć z aria-hidden
-    images.forEach(img => {
-      const clone = createImageElement(img.media_url);
-      clone.setAttribute('aria-hidden', 'true');
-      container.appendChild(clone);
-    });
+    if(containerId === "instagram-feed") {
+      images.forEach(img => {
+        const clone = createImageElement(img.media_url);
+        clone.setAttribute('aria-hidden', 'true');
+        container.appendChild(clone);
+      });
+    }
 
   } catch (error) {
     console.error("Błąd ładowania Instagram feed:", error);
