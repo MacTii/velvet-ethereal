@@ -5,5 +5,5 @@
 }
 
 .swiper-pagination-bullet-active {
-    background-color: var(--text-dark);
+    background-color: var(--text-primary);
 }
