@@ -24,7 +24,7 @@
 
 .footer__socials a {
     font-size: 1.5rem;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .footer__socials a:hover {
@@ -41,7 +41,7 @@
 .footer__links a {
     display: block;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
     text-align: center;
     white-space: nowrap;
 }
@@ -54,7 +54,7 @@
     margin-bottom: 1rem;
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
     text-align: center;
 }
 
@@ -67,8 +67,8 @@
 .footer__bar {
     padding: 1rem;
     font-size: 0.9rem;
-    color: var(--extra-light);
-    background-color: var(--text-dark);
+    color: var(--white);
+    background-color: var(--text-primary);
     text-align: center;
 }
 
@@ -92,11 +92,11 @@
 .footer__contact i {
     margin-right: 10px;
     font-size: 1.2rem;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .footer__contact a {
-    color: var(--text-dark);
+    color: var(--text-primary);
     text-decoration: none;
     transition: color 0.3s;
     font-weight: 500;
@@ -122,7 +122,7 @@
     }
 
     .footer__col:nth-child(3) {
-        border-left: 2px solid var(--text-dark);
+        border-left: 2px solid var(--text-primary);
     }
 
     .footer__contact {
@@ -141,8 +141,8 @@
 
     .footer__col:nth-child(1) {
         grid-area: 1/2/2/3;
-        border-left: 2px solid var(--text-dark);
-        border-right: 2px solid var(--text-dark);
+        border-left: 2px solid var(--text-primary);
+        border-right: 2px solid var(--text-primary);
     }
 
     .footer__col:nth-child(3) {

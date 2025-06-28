@@ -5,7 +5,7 @@
     font-size: 1rem;
     font-weight: 500;
     color: var(--white);
-    background-color: var(--text-dark);
+    background-color: var(--text-primary);
     border-radius: 5px;
     transition: 0.3s;
     cursor: pointer;

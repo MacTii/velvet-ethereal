@@ -79,6 +79,21 @@
     font-family: var(--body-font);
 }
 
+.price-original {
+    text-decoration: line-through;
+    color: var(--text-medium-gray);
+}
+
+.price-discount {
+    color: #b63b45;
+    font-weight: bold;
+}
+
+.price-wrapper {
+    display: inline-flex;
+    gap: 10px;
+}
+
 .included {
     columns: 2;
     column-gap: 30px;
@@ -229,7 +244,7 @@
         display: block;
         text-align: center;
     }
-    
+
     .additional-fees li strong {
         display: block;
     }
