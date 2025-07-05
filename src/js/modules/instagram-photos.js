@@ -27,7 +27,7 @@ export async function fetchInstagramPhotos(userId, limit = null) {
 function getStaticInstagramPhotos(limit) {
   const staticPhotos = [];
 
-  for (let i = 1; i <= 8; i++) {
+  for (let i = 1; i <= 16; i++) {
     staticPhotos.push({ media_url: `/assets/image-${i}.jpg` });
   }
 
