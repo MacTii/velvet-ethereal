@@ -27,10 +27,10 @@ export function initSendEmailForm() {
       });
 
       if (response.ok) {
-        toastr.success("Wiadomość została wysłana!");
+        toastr.success(response.message || "Wiadomość została wysłana!");
         contactForm.reset();
       } else {
-        toastr.error("Coś poszło nie tak, spróbuj ponownie.");
+        toastr.error(response.error || "Błąd podczas wysyłania wiadomości!");
       }
     } catch (error) {
       toastr.error("Błąd wysyłki, sprawdź połączenie.");
