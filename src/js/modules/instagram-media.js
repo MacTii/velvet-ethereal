@@ -1,10 +1,10 @@
 /**
- * Wyświetla zdjęcia z Instagrama w kontenerze
- * @param {string} userId - Instagram User ID (np. '17841400000000000')
- * @param {string} containerId - ID elementu HTML, gdzie mają być zdjęcia (np. 'instagram-feed')
- * @param {number} limit - Maksymalna liczba zdjęć do wyświetlenia
+ * Renderuje zdjęcia do kontenera na podstawie przekazanej listy
+ * @param {Array} images - Tablica zdjęć (np. z fetchInstagramPhotos)
+ * @param {string} containerId - ID kontenera w DOM
+ * @param {number} limit - Ile zdjęć wyrenderować (z początku listy)
  */
-export async function loadInstagramMedia(userId, containerId, limit) {
+export function loadInstagramMedia(images, containerId, limit) {
   const container = document.getElementById(containerId);
 
   if (!container) {
@@ -12,40 +12,22 @@ export async function loadInstagramMedia(userId, containerId, limit) {
     return;
   }
 
-  container.innerHTML = "<p>Ładowanie zdjęć z Instagrama...</p>";
+  container.innerHTML = ""; // Czyścimy kontener
 
-  try {
-    // Budujemy URL dynamicznie
-    const params = new URLSearchParams({ userId });
-    if (typeof limit === "number") {
-      params.set("limit", limit.toString());
-    }
+  const selectedImages = images.slice(0, limit);
 
-    const response = await fetch(`/api/instagram?${params.toString()}`);
+  // 1. Dodaj oryginalne zdjęcia
+  selectedImages.forEach((img) => {
+    container.appendChild(createImageElement(img.media_url));
+  });
 
-    if (!response.ok) throw new Error("Błąd podczas pobierania danych");
-
-    const images = await response.json();
-
-    container.innerHTML = ""; // Czyścimy kontener
-
-    // 1. Dodaj oryginalne zdjęcia
-    images.forEach((img) => {
-      container.appendChild(createImageElement(img.media_url));
+  // 2. Dodaj kopie dla instafeed
+  if (containerId === "instagram-feed") {
+    selectedImages.forEach((img) => {
+      const clone = createImageElement(img.media_url);
+      clone.setAttribute("aria-hidden", "true");
+      container.appendChild(clone);
     });
-
-    // 2. Dodaj KOPIE wszystkich zdjęć z aria-hidden
-    if (containerId === "instagram-feed") {
-      images.forEach((img) => {
-        const clone = createImageElement(img.media_url);
-        clone.setAttribute("aria-hidden", "true");
-        container.appendChild(clone);
-      });
-    }
-  } catch (error) {
-    console.error("Błąd ładowania Instagram feed:", error);
-    container.innerHTML =
-      "<p>Nie udało się załadować zdjęć. Odśwież stronę.</p>";
   }
 }
 
@@ -58,7 +40,7 @@ function createImageElement(url) {
   const img = document.createElement("img");
   img.src = url;
   img.alt = "Instagram post";
-  //img.className = "instagram-image";
-  //img.loading = "lazy";
+  // img.className = "instagram-image";
+  // img.loading = "lazy";
   return img;
 }

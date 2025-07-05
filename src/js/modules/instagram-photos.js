@@ -1,3 +1,4 @@
+// One request to fetch all instagram photos and then limit them for components
 export async function fetchInstagramPhotos(userId, limit = null) {
   try {
     const params = new URLSearchParams({ userId });
@@ -17,6 +18,18 @@ export async function fetchInstagramPhotos(userId, limit = null) {
     return data;
   } catch (error) {
     console.error("fetchInstagramPhotos error:", error);
-    throw error;
+
+    // Fallback – static images
+    return getStaticInstagramPhotos(limit);
   }
+}
+
+function getStaticInstagramPhotos(limit) {
+  const staticPhotos = [];
+
+  for (let i = 1; i <= 8; i++) {
+    staticPhotos.push({ media_url: `/assets/image-${i}.jpg` });
+  }
+
+  return limit ? staticPhotos.slice(0, limit) : staticPhotos;
 }
