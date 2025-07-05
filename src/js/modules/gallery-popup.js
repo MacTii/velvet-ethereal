@@ -1,9 +1,5 @@
-export async function initGalleryPopup(userId) {
+export function initGalleryPopup(images) {
   try {
-    const response = await fetch(`/api/instagram?userId=${userId}`);
-    if (!response.ok) throw new Error("Nie udało się pobrać zdjęć z API");
-
-    const images = await response.json();
     const imageUrls = images.map((img) => img.media_url);
     console.log("Załadowane zdjęcia:", imageUrls);
 

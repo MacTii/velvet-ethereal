@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { StatusCodes } from "http-status-codes";
 
 export async function POST(request) {
   try {
@@ -30,13 +31,13 @@ export async function POST(request) {
 
     await transporter.sendMail(mailOptions);
 
-    return new Response(JSON.stringify({ message: "Wiadomość wysłana" }), {
-      status: 200,
+    return new Response(JSON.stringify({ message: "Wiadomość została wysłana!" }), {
+      status: StatusCodes.OK,
     });
   } catch (error) {
     console.error(error);
-    return new Response(JSON.stringify({ error: "Błąd podczas wysyłania" }), {
-      status: 500,
+    return new Response(JSON.stringify({ error: "Błąd podczas wysyłania!" }), {
+      status: StatusCodes.INTERNAL_SERVER_ERROR,
     });
   }
 }
