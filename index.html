@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="/src/css/styles.css" />
   <title>Aksamitna Eteryka</title>
@@ -128,7 +128,7 @@
           </li>
         </ul>
         <p class="note">Ceny dotyczą dni od poniedziałku do niedzieli w godzinach 10.00-20.00</p>
-      
+
         <h4>W cenie</h4>
         <ul class="included">
           <li>Wszystkie stałe aranżacje</li>
@@ -140,7 +140,7 @@
           <li>Dostęp do Wi-Fi</li>
           <li>Wentylator</li>
         </ul>
-      </div>      
+      </div>
 
       <h3 class="packages-header">Za dodatkową opłatą</h3>
       <div class="service__grid">
@@ -244,7 +244,19 @@
       <img src="/assets/image-8.jpg" alt="Zdjęcie z galerii" /> -->
     </div>
     <div class="gallery__btn">
-      <a href="https://www.instagram.com/studio_aksamitna_eteryka/" target="_blank" class="btn">ZOBACZ GALERIĘ</a>
+      <button id="openGalleryBtn" class="btn">ZOBACZ GALERIĘ</button>
+    </div>
+    <div id="galleryModal" class="modal">
+      <div class="modal__content">
+        <span class="close">&times;</span>
+        <div class="modal__gallery">
+          <img id="modalImage" src="" alt="Zdjęcie z galerii" />
+          <div class="modal__controls">
+            <button id="prevBtn">&#10094;</button>
+            <button id="nextBtn">&#10095;</button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -261,6 +273,47 @@
         <div class="blog__btn">
           <a class="btn" href="mailto:aksamitnaeteryka@gmail.com">Napisz do nas</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact__section" id="contact">
+    <h2 class="section__header">KONTAKT</h2>
+    <div class="section__container contact__grid">
+      <div class="contact__map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.634113801914!2d19.46587627685538!3d51.7622528718701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a34a0b94f93a5%3A0x8ad2d7cc45a92e99!2sP%C5%82k.%20Jana%20Kili%C5%84skiego%2025%2C%2090-354%20%C5%81%C3%B3d%C5%BA!5e0!3m2!1spl!2spl!4v1719680742367!5m2!1spl!2spl">
+        </iframe>
+
+        <div class="contact__info">
+          <p><strong>Adres:</strong> płk. Jana Kilińskiego 25, 90-354 Łódź</p>
+          <p><strong>Email:</strong> aksamitnaeteryka@gmail.com</a></p>
+          <p><strong>Telefon:</strong> 604 870 985</a></p>
+        </div>
+      </div>
+
+      <div class="contact__form">
+        <h3>Skontaktuj się z nami</h3>
+        <p>Masz pytanie lub chcesz umówić sesję? Napisz do nas!</p>
+        <form id="contactForm">
+          <div class="form__group">
+            <label for="name">Imię i nazwisko</label>
+            <input type="text" id="name" name="Imię i nazwisko" required />
+          </div>
+          <div class="form__group">
+            <label for="email">Adres email</label>
+            <input type="email" id="email" name="Email" required />
+          </div>
+          <div class="form__group">
+            <label for="phone">Numer telefonu</label>
+            <input type="tel" id="phone" name="Telefon" />
+          </div>
+          <div class="form__group">
+            <label for="message">Wiadomość</label>
+            <textarea id="message" name="Wiadomość" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn">Wyślij wiadomość</button>
+        </form>
       </div>
     </div>
   </section>
@@ -328,6 +381,7 @@
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script type="module" src="/src/js/main.js"></script>
+
 </body>
 
 </html>

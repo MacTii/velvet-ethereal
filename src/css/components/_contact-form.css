@@ -1,0 +1,79 @@
+.contact__section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.contact__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.contact__map iframe {
+    width: 100%;
+    height: 500px;
+    border-radius: 8px;
+    border: none;
+}
+
+.contact__map {
+    position: relative;
+}
+
+.contact__info {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    z-index: 2;
+    max-width: 350px;
+}
+
+.contact__info a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.contact__info p {
+    margin: 4px 0;
+}
+
+.contact__form h2 {
+    margin-bottom: 10px;
+}
+
+.contact__form p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.form__group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .contact__grid {
+        grid-template-columns: 1fr;
+    }
+}

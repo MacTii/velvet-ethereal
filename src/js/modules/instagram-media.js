@@ -4,7 +4,7 @@
  * @param {string} containerId - ID elementu HTML, gdzie mają być zdjęcia (np. 'instagram-feed')
  * @param {number} limit - Maksymalna liczba zdjęć do wyświetlenia
  */
-export async function loadInstagramMedia(userId, containerId, limit = 8) {
+export async function loadInstagramMedia(userId, containerId, limit) {
   const container = document.getElementById(containerId);
 
   if (!container) {
@@ -12,13 +12,16 @@ export async function loadInstagramMedia(userId, containerId, limit = 8) {
     return;
   }
 
-  // Tymczasowy loader
   container.innerHTML = "<p>Ładowanie zdjęć z Instagrama...</p>";
 
   try {
-    const response = await fetch(
-      `/api/instagram?userId=${userId}&limit=${limit}`
-    );
+    // Budujemy URL dynamicznie
+    const params = new URLSearchParams({ userId });
+    if (typeof limit === "number") {
+      params.set("limit", limit.toString());
+    }
+
+    const response = await fetch(`/api/instagram?${params.toString()}`);
 
     if (!response.ok) throw new Error("Błąd podczas pobierania danych");
 
