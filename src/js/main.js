@@ -8,18 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
   initAnimations();
   initSwiper();
-  loadInstagramMedia(import.meta.env.VITE_INSTAGRAM_USER_ID, "instagram-feed");
-  loadInstagramMedia(import.meta.env.VITE_INSTAGRAM_USER_ID, "gallery", 16);
-  // const staticImages = [
-  //   "/assets/image-1.jpg",
-  //   "/assets/image-2.jpg",
-  //   "/assets/image-3.jpg",
-  //   "/assets/image-4.jpg",
-  //   "/assets/image-5.jpg",
-  //   "/assets/image-6.jpg",
-  //   "/assets/image-7.jpg",
-  //   "/assets/image-8.jpg",
-  // ];
-
+  loadInstagramMedia(import.meta.env.VITE_INSTAGRAM_USER_ID, "instagram-feed", 8);
+  loadInstagramMedia(import.meta.env.VITE_INSTAGRAM_USER_ID, "gallery", 12);
   initGalleryPopup(import.meta.env.VITE_INSTAGRAM_USER_ID);
 });
