@@ -69,6 +69,12 @@ You need to have the following software installed:
 **Email:** aksamitnaeteryka@gmail.com </br>
 **Instagram:** <a href="https://www.instagram.com/studio_aksamitna_eteryka/" target="_blank">@studio_aksamitna_eteryka</a>
 
+## 🖼️ Images
+
+Every image in `public/assets` is either the studio's own work or licensed for
+commercial use. See [CREDITS.md](CREDITS.md) for the per-file provenance record and
+the rules to follow when adding new ones.
+
 ## 📝 License
 
 This project is licensed under a **Commercial License**. To use or distribute this project, you must obtain a valid commercial license.
