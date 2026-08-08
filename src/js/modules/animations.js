@@ -38,9 +38,6 @@ const REVEALS = [
 export function initAnimations() {
   if (typeof ScrollReveal !== "function") return;
 
-  // Przy wlaczonej redukcji ruchu nie chowamy niczego - tresc ma byc od razu widoczna
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
   const sr = ScrollReveal();
 
   for (const [selector, options] of REVEALS) {
