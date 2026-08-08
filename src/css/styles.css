@@ -1,4 +1,5 @@
 @import "/src/css/base/_base.css";
+@import "/src/css/components/_site-notice.css";
 @import "/src/css/components/_header.css";
 @import "/src/css/components/_footer.css";
 @import "/src/css/components/_button.css";

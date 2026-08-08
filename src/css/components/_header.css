@@ -10,7 +10,8 @@
 nav {
     position: fixed;
     isolation: isolate;
-    top: 0;
+    /* Przypieta nawigacja na mobile musi zaczynac sie pod paskiem archiwalnym */
+    top: var(--notice-height, 0px);
     width: 100%;
     max-width: var(--max-width);
     margin: auto;

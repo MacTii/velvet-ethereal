@@ -1,3 +1,4 @@
+import { initSiteNotice } from "./modules/site-notice.js";
 import { initNavigation } from "./modules/navigation.js";
 import { initAnimations } from "./modules/animations.js";
 import { loadInstagramMedia } from "./modules/instagram-media.js";
@@ -8,6 +9,7 @@ import { fetchInstagramPhotos } from "./modules/instagram-photos.js";
 const GALLERY_SIZE = 12;
 
 document.addEventListener("DOMContentLoaded", async () => {
+  initSiteNotice();
   initNavigation();
   initAnimations();
   initSendEmailForm();

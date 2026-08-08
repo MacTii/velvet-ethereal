@@ -1,0 +1,37 @@
+/* Pasek o zakonczeniu dzialalnosci. Przypiety do gory na kazdej szerokosci,
+   bez mozliwosci zamkniecia. Jego wysokosc trafia do --notice-height
+   (ustawianej w site-notice.js), zeby reszta strony nie chowala sie pod nim. */
+.site-notice {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0.85rem 1rem;
+    background-color: #241a10;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.site-notice p {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    color: #f5efe9;
+    font-family: var(--body-font);
+    font-size: 0.875rem;
+    line-height: 1.55;
+    text-align: center;
+}
+
+.site-notice strong {
+    color: #e8a860;
+}
+
+/* Pasek jest wyjety z ukladu, wiec tresc trzeba zepchnac o jego wysokosc */
+body {
+    padding-top: var(--notice-height, 0px);
+}
+
+/* Kotwice z menu musza zatrzymywac sie pod paskiem, a nie za nim */
+html {
+    scroll-padding-top: var(--notice-height, 0px);
+}
