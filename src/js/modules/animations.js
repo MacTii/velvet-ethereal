@@ -1,38 +1,34 @@
 const BASE_OPTIONS = {
-  distance: "40px",
+  distance: "24px",
   origin: "bottom",
-  duration: 600,
+  duration: 400,
   easing: "cubic-bezier(0.2, 0, 0.2, 1)",
 };
 
 // ScrollReveal liczy `delay` od chwili wejscia elementu w kadr, nie od zaladowania
-// strony. Dlatego opoznienia zeruja sie w kazdej grupie wizualnej - kaskada ma sens
-// tylko miedzy elementami, ktore pojawiaja sie razem. Do tego sluzy `interval`.
+// strony, wiec kazde opoznienie to czas, przez ktory patrzysz na puste miejsce po
+// dojechaniu do sekcji. Suma delay + duration musi zostac wyraznie ponizej pol
+// sekundy, inaczej tresc nie nadaza za przewijaniem. Kafelki w rzedzie pojawiaja
+// sie razem - kaskada miala sens przy wolnym wjezdzie, teraz tylko przeszkadza.
 const REVEALS = [
   // --- O nas ---
   [".about__container .section__header", {}],
-  [".about__container .section__description", { delay: 120, interval: 120 }],
-  [".about__container img", { delay: 240 }],
+  [".about__container .section__description", { interval: 60 }],
+  [".about__container img", { delay: 60 }],
 
-  // --- Cennik: naglowek sekcji ---
+  // --- Cennik ---
   [".service__container .section__header", {}],
-  [".service__container .section__description", { delay: 120 }],
-
-  // --- Cennik: tabela (wlasny blok, wchodzi w kadr osobno) ---
+  [".service__container .section__description", { delay: 60 }],
   [".pricing-table", {}],
-
-  // --- Cennik: kafelki pakietow (na desktopie caly rzad wchodzi naraz) ---
   [".packages-header", {}],
-  [".service__card", { delay: 120, interval: 120 }],
-
-  // --- Cennik: dodatkowe oplaty (osobny blok pod kafelkami) ---
+  [".service__card", {}],
   [".additional-fees", {}],
 
   // --- Porady ---
   [".blog__content .section__header", {}],
-  [".blog__content h4", { delay: 120 }],
-  [".blog__content p", { delay: 240 }],
-  [".blog__content .blog__btn", { delay: 360 }],
+  [".blog__content h4", { delay: 60 }],
+  [".blog__content p", { delay: 120 }],
+  [".blog__content .blog__btn", { delay: 180 }],
 ];
 
 export function initAnimations() {
