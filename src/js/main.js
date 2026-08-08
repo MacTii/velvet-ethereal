@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initSwiper();
   const allPhotos = await fetchInstagramPhotos(import.meta.env.VITE_INSTAGRAM_USER_ID);
   loadInstagramMedia(allPhotos, "instagram-feed", 8);
-  loadInstagramMedia(allPhotos, "gallery", 12);
+  loadInstagramMedia(allPhotos, "gallery-grid", 12);
   initGalleryPopup(allPhotos);
   initSendEmailForm();
 });
