@@ -1,6 +1,21 @@
 /* Pasek o zakonczeniu dzialalnosci. Przypiety do gory na kazdej szerokosci,
    bez mozliwosci zamkniecia. Jego wysokosc trafia do --notice-height
-   (ustawianej w site-notice.js), zeby reszta strony nie chowala sie pod nim. */
+   (ustawianej w site-notice.js), zeby reszta strony nie chowala sie pod nim.
+
+   Wartosci ponizej to zapas na wypadek, gdyby JS nie zdazyl albo nie wykonal
+   sie wcale. Sa celowo hojne - lepszy nadmiarowy odstep niz nawigacja
+   przykrywajaca komunikat. Pomiar z JS trafia na html jako styl inline,
+   wiec nadpisuje te wartosci. */
+:root {
+    --notice-height: 64px;
+}
+
+@media (width <= 768px) {
+    :root {
+        --notice-height: 150px;
+    }
+}
+
 .site-notice {
     position: fixed;
     top: 0;
