@@ -8,7 +8,16 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    /* Pasek zawiera dwie identyczne kopie zdjec. Przesuniecie o jeden pelny
+       cykl (polowa szerokosci + pol odstepu) ustawia kopie nr 2 dokladnie tam,
+       gdzie startowala kopia nr 1, wiec powrot do zera jest niewidoczny.
+       Odstep liczy sie osobno, bo miedzy kopiami jest o jeden gap mniej,
+       niz wynikaloby z samych 50%. */
     animation: scroll 45s linear infinite;
+}
+
+.instagram__flex:hover {
+    animation-play-state: paused;
 }
 
 .instagram__flex img {
@@ -17,4 +26,10 @@
     object-fit: cover;
     flex-shrink: 0;
     border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .instagram__flex {
+        animation: none;
+    }
 }

@@ -1,9 +1,0 @@
-.swiper {
-    margin-top: 2rem;
-    padding-bottom: 3rem;
-    width: 100%;
-}
-
-.swiper-pagination-bullet-active {
-    background-color: var(--text-primary);
-}

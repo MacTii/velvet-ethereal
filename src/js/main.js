@@ -1,18 +1,21 @@
 import { initNavigation } from "./modules/navigation.js";
 import { initAnimations } from "./modules/animations.js";
-import { initSwiper } from "./modules/swiper.js";
 import { loadInstagramMedia } from "./modules/instagram-media.js";
 import { initGalleryPopup } from "./modules/gallery-popup.js";
 import { initSendEmailForm } from "./modules/send-email.js";
 import { fetchInstagramPhotos } from "./modules/instagram-photos.js";
 
+const GALLERY_SIZE = 12;
+
 document.addEventListener("DOMContentLoaded", async () => {
   initNavigation();
   initAnimations();
-  initSwiper();
-  const allPhotos = await fetchInstagramPhotos(import.meta.env.VITE_INSTAGRAM_USER_ID);
-  loadInstagramMedia(allPhotos, "instagram-feed", 8);
-  loadInstagramMedia(allPhotos, "gallery-grid", 12);
-  initGalleryPopup(allPhotos);
   initSendEmailForm();
+
+  const allPhotos = await fetchInstagramPhotos();
+  const galleryPhotos = allPhotos.slice(0, GALLERY_SIZE);
+
+  loadInstagramMedia(allPhotos.slice(0, 8), "instagram-feed", { duplicate: true });
+  loadInstagramMedia(galleryPhotos, "gallery-grid");
+  initGalleryPopup(galleryPhotos);
 });

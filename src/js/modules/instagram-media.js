@@ -1,10 +1,11 @@
 /**
- * Renderuje zdjęcia do kontenera na podstawie przekazanej listy
- * @param {Array} images - Tablica zdjęć (np. z fetchInstagramPhotos)
+ * Renderuje zdjecia do wskazanego kontenera.
+ * @param {Array<{media_url: string}>} images - lista zdjec do wyrenderowania
  * @param {string} containerId - ID kontenera w DOM
- * @param {number} limit - Ile zdjęć wyrenderować (z początku listy)
+ * @param {{duplicate?: boolean}} [options] - duplicate powiela zdjecia,
+ *   co jest potrzebne do plynnej petli w przewijanym pasku instagramowym
  */
-export function loadInstagramMedia(images, containerId, limit) {
+export function loadInstagramMedia(images, containerId, { duplicate = false } = {}) {
   const container = document.getElementById(containerId);
 
   if (!container) {
@@ -12,19 +13,15 @@ export function loadInstagramMedia(images, containerId, limit) {
     return;
   }
 
-  container.innerHTML = ""; // Czyścimy kontener
+  container.replaceChildren();
 
-  const selectedImages = images.slice(0, limit);
-
-  // 1. Dodaj oryginalne zdjęcia
-  selectedImages.forEach((img) => {
-    container.appendChild(createImageElement(img.media_url));
+  images.forEach((img, index) => {
+    container.appendChild(createImageElement(img.media_url, index));
   });
 
-  // 2. Dodaj kopie dla instafeed
-  if (containerId === "instagram-feed") {
-    selectedImages.forEach((img) => {
-      const clone = createImageElement(img.media_url);
+  if (duplicate) {
+    images.forEach((img, index) => {
+      const clone = createImageElement(img.media_url, index);
       clone.setAttribute("aria-hidden", "true");
       container.appendChild(clone);
     });
@@ -32,15 +29,16 @@ export function loadInstagramMedia(images, containerId, limit) {
 }
 
 /**
- * Tworzy element <img> dla zdjęcia
- * @param {string} url - URL zdjęcia
- * @returns {HTMLElement} Element <img>
+ * @param {string} url - URL zdjecia
+ * @param {number} index - pozycja zdjecia, uzywana przez modal galerii
+ * @returns {HTMLImageElement}
  */
-function createImageElement(url) {
+function createImageElement(url, index) {
   const img = document.createElement("img");
   img.src = url;
-  img.alt = "Instagram post";
-  // img.className = "instagram-image";
-  // img.loading = "lazy";
+  img.alt = "Wnętrze studia fotograficznego Aksamitna Eteryka";
+  img.loading = "lazy";
+  img.decoding = "async";
+  img.dataset.index = String(index);
   return img;
 }

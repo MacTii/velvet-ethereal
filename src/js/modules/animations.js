@@ -1,61 +1,49 @@
+const BASE_OPTIONS = {
+  distance: "40px",
+  origin: "bottom",
+  duration: 600,
+  easing: "cubic-bezier(0.2, 0, 0.2, 1)",
+};
+
+// ScrollReveal liczy `delay` od chwili wejscia elementu w kadr, nie od zaladowania
+// strony. Dlatego opoznienia zeruja sie w kazdej grupie wizualnej - kaskada ma sens
+// tylko miedzy elementami, ktore pojawiaja sie razem. Do tego sluzy `interval`.
+const REVEALS = [
+  // --- O nas ---
+  [".about__container .section__header", {}],
+  [".about__container .section__description", { delay: 120, interval: 120 }],
+  [".about__container img", { delay: 240 }],
+
+  // --- Cennik: naglowek sekcji ---
+  [".service__container .section__header", {}],
+  [".service__container .section__description", { delay: 120 }],
+
+  // --- Cennik: tabela (wlasny blok, wchodzi w kadr osobno) ---
+  [".pricing-table", {}],
+
+  // --- Cennik: kafelki pakietow (na desktopie caly rzad wchodzi naraz) ---
+  [".packages-header", {}],
+  [".service__card", { delay: 120, interval: 120 }],
+
+  // --- Cennik: dodatkowe oplaty (osobny blok pod kafelkami) ---
+  [".additional-fees", {}],
+
+  // --- Porady ---
+  [".blog__content .section__header", {}],
+  [".blog__content h4", { delay: 120 }],
+  [".blog__content p", { delay: 240 }],
+  [".blog__content .blog__btn", { delay: 360 }],
+];
+
 export function initAnimations() {
-  const scrollRevealOption = {
-    distance: "50px",
-    origin: "bottom",
-    duration: 1000,
-  };
+  if (typeof ScrollReveal !== "function") return;
 
-  ScrollReveal().reveal(".about__container .section__header", {
-    ...scrollRevealOption,
-  });
-  ScrollReveal().reveal(".about__container .section__description", {
-    ...scrollRevealOption,
-    delay: 500,
-    interval: 500,
-  });
-  ScrollReveal().reveal(".about__container img", {
-    ...scrollRevealOption,
-    delay: 1500,
-  });
+  // Przy wlaczonej redukcji ruchu nie chowamy niczego - tresc ma byc od razu widoczna
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  ScrollReveal().reveal(".service__container .section__header", {
-    ...scrollRevealOption,
-  });
-  ScrollReveal().reveal(".service__container .section__description", {
-    ...scrollRevealOption,
-    delay: 300,
-  });
-  ScrollReveal().reveal(".pricing-table", {
-    ...scrollRevealOption,
-    delay: 600,
-  });
-  ScrollReveal().reveal(".packages-header", {
-    ...scrollRevealOption,
-    delay: 900,
-  });
-  ScrollReveal().reveal(".service__card", {
-    duration: 1000,
-    delay: 1200,
-    interval: 500,
-  });
-  ScrollReveal().reveal(".additional-fees", {
-    ...scrollRevealOption,
-    delay: 2000,
-  });
+  const sr = ScrollReveal();
 
-  ScrollReveal().reveal(".blog__content .section__header", {
-    ...scrollRevealOption,
-  });
-  ScrollReveal().reveal(".blog__content h4", {
-    ...scrollRevealOption,
-    delay: 500,
-  });
-  ScrollReveal().reveal(".blog__content p", {
-    ...scrollRevealOption,
-    delay: 1000,
-  });
-  ScrollReveal().reveal(".blog__content .blog__btn", {
-    ...scrollRevealOption,
-    delay: 1500,
-  });
+  for (const [selector, options] of REVEALS) {
+    sr.reveal(selector, { ...BASE_OPTIONS, ...options });
+  }
 }

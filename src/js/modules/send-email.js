@@ -26,11 +26,13 @@ export function initSendEmailForm() {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json().catch(() => ({}));
+
       if (response.ok) {
-        toastr.success(response.message || "Wiadomość została wysłana!");
+        toastr.success(data.message || "Wiadomość została wysłana!");
         contactForm.reset();
       } else {
-        toastr.error(response.error || "Błąd podczas wysyłania wiadomości!");
+        toastr.error(data.error || "Błąd podczas wysyłania wiadomości!");
       }
     } catch (error) {
       toastr.error("Błąd wysyłki, sprawdź połączenie.");

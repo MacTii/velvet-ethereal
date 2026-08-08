@@ -1,35 +1,29 @@
-// One request to fetch all instagram photos and then limit them for components
-export async function fetchInstagramPhotos(userId, limit = null) {
-  try {
-    const params = new URLSearchParams({ userId });
-    if (limit !== null) {
-      params.append("limit", limit);
-    }
+const STATIC_PHOTO_COUNT = 16;
 
-    const response = await fetch(`/api/instagram?${params.toString()}`);
+// Jedno zapytanie po wszystkie zdjecia, limitowane pozniej per sekcja
+export async function fetchInstagramPhotos() {
+  try {
+    const response = await fetch("/api/instagram");
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(
-        data.error || "Błąd podczas pobierania zdjęć z Instagrama"
-      );
+      throw new Error(data.error || "Błąd podczas pobierania zdjęć z Instagrama");
+    }
+
+    // Pusty feed tez traktujemy jak awarie - lepsze statyczne zdjecia niz pusta galeria
+    if (!Array.isArray(data) || data.length === 0) {
+      throw new Error("Instagram zwrócił pustą listę zdjęć");
     }
 
     return data;
   } catch (error) {
     console.error("fetchInstagramPhotos error:", error);
-
-    // Fallback – static images
-    return getStaticInstagramPhotos(limit);
+    return getStaticInstagramPhotos();
   }
 }
 
-function getStaticInstagramPhotos(limit) {
-  const staticPhotos = [];
-
-  for (let i = 1; i <= 16; i++) {
-    staticPhotos.push({ media_url: `/assets/image-${i}.jpg` });
-  }
-
-  return limit ? staticPhotos.slice(0, limit) : staticPhotos;
+function getStaticInstagramPhotos() {
+  return Array.from({ length: STATIC_PHOTO_COUNT }, (_, i) => ({
+    media_url: `/assets/image-${i + 1}.jpg`,
+  }));
 }

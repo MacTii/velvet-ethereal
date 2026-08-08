@@ -13,7 +13,21 @@ This project is a digital business card for a photography studio named **Aksamit
 | Environment | Branch | URL | Status |
 |-------------|--------|-----|--------|
 | **Production** | `master` | [aksamitna-eteryka.vercel.app](https://aksamitna-eteryka.vercel.app) | [![Production](https://img.shields.io/badge/Production-Live-brightgreen)](https://aksamitna-eteryka.vercel.app) |
-| **Staging** | `test` | [aksamitna-eteryka-test.vercel.app](https://aksamitna-eteryka-test.vercel.app) | [![Staging](https://img.shields.io/badge/Staging-Test-blue)](https://aksamitna-eteryka-test.vercel.app) |
+
+`master` is the only branch — it deploys straight to production.
+
+### Environment variables
+
+Set these in the Vercel project (Settings → Environment Variables):
+
+| Variable | Used by | Purpose |
+|----------|---------|---------|
+| `INSTAGRAM_ACCESS_TOKEN` | `api/instagram.js` | Instagram Graph API token. Expires after 60 days — refresh via `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=…` |
+| `INSTAGRAM_USER_ID` | `api/instagram.js` | Instagram business account ID |
+| `MAIL_USER` | `api/send-email.js` | Gmail address used as SMTP sender |
+| `MAIL_PASS` | `api/send-email.js` | Gmail [App Password](https://myaccount.google.com/apppasswords) |
+
+Pull them locally with `npx vercel env pull .env.local`.
 
 ## 🛠️ Development Setup
 
@@ -36,9 +50,18 @@ You need to have the following software installed:
    ```bash
    npm install
 3. Run the development server:
+
    ```bash
    npm run dev
-This will start the application locally on http://localhost:3000.
+   ```
+
+   Vite serves the site on http://localhost:5173. Note that `npm run dev` does **not**
+   run the `api/` functions, so the contact form and the Instagram feed stay on their
+   fallbacks. To exercise them locally, run the Vercel dev server instead:
+
+   ```bash
+   npx vercel dev
+   ```
 
 ## 📬 Contact
 
