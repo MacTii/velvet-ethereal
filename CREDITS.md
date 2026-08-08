@@ -29,8 +29,8 @@ identifiable people, which avoids needing a model release for commercial use.
 
 | File | Photographer | Source | Retrieved |
 |------|--------------|--------|-----------|
-| `header.jpg` | Sofia Lasheva (@sofizz) | https://unsplash.com/photos/a-photography-studio-setup-with-lighting-equipment-vhKyOG9LjqI | 2026-08-08 |
-| `service.jpg` | Alexander Dummer (@4dgraphic) | https://unsplash.com/photos/aS4Duj2j7r4 | 2026-08-08 |
+| `header.jpg` | Alexander Dummer (@4dgraphic) | https://unsplash.com/photos/aS4Duj2j7r4 | 2026-08-08 |
+| `service.jpg` | Sofia Lasheva (@sofizz) | https://unsplash.com/photos/a-photography-studio-setup-with-lighting-equipment-vhKyOG9LjqI | 2026-08-08 |
 | `blog.jpg` | Neon Wang (@neonwangphotography) | https://unsplash.com/photos/a-photo-studio-with-a-soft-light-and-soft-lighting-M6kTdBCtTZg | 2026-08-08 |
 
 ### What to watch out for when adding more
